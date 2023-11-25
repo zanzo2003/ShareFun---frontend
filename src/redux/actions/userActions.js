@@ -34,7 +34,7 @@ export const userLogin = (values)=>async dispatch=>{
 
     try {
 
-        const response = await axios.post('/api/users/login', values);
+        const response = await axios.post('https://share-fun-api.onrender.com/api/users/login', values);
         dispatch({type: 'LOADING', payload: false}); 
         successmsg();
         localStorage.setItem('user', JSON.stringify(response.data));
@@ -53,7 +53,7 @@ export const getAllUsers = (values) =>async dispatch=>{
     dispatch({type:'LOADING' , payload:true})
 
     try {
-        const response = await axios.get('/api/users/getallusers')
+        const response = await axios.get('https://share-fun-api.onrender.com/api/users/getallusers')
         dispatch({type:'LOADING' , payload:false})
         dispatch({type:'GET_ALL_USERS' , payload:response.data})
         
@@ -69,7 +69,7 @@ export const followUser = (values) =>async dispatch=>{
     dispatch({type:'FOLLOW_LOADING' , payload:true})
 
     try {
-        const response = await axios.post('/api/users/followuser' ,values)
+        const response = await axios.post('https://share-fun-api.onrender.com/api/users/followuser' ,values)
         dispatch({type:'FOLLOW_LOADING' , payload:false})
         message.success('Followed successfully')
         
@@ -85,7 +85,7 @@ export const unfollowUser = (values) =>async dispatch=>{
     dispatch({type:'UNFOLLOW_LOADING' , payload:true})
 
     try {
-        const response = await axios.post('/api/users/unfollowuser' ,values)
+        const response = await axios.post('https://share-fun-api.onrender.com/api/users/unfollowuser' ,values)
         dispatch({type:'UNFOLLOW_LOADING' , payload:false})
         message.success('Unfollowed successfully')
         
@@ -103,7 +103,7 @@ export const editUser =(values)=>async dispatch=>{
     dispatch({type:'EDIT_POST_LOADING' , payload:true})
 
     try {
-        const response = await axios.post('/api/users/edit' , values)
+        const response = await axios.post('https://share-fun-api.onrender.com/api/users/edit' , values)
         dispatch({type:'EDIT_POST_LOADING' , payload:false})
         message.success('User profile updated successfully')
         localStorage.setItem('user' , JSON.stringify(response.data))
