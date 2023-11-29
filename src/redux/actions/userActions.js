@@ -16,7 +16,7 @@ export const userRegister = (values)=>async dispatch=>{
 
     try {
 
-        await axios.post('/api/users/register', values);
+        await axios.post('https://share-fun-api.onrender.com/api/users/register', values);
         dispatch({type: 'LOADING', payload: false}); 
         successmsg();
         window.location.href = '/login';  
